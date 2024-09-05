@@ -57,7 +57,7 @@ export default function VerifyCode() {
         }
 
         try {
-            const response = await fetch("http://localhost:4000/api/auth/verify-mfa", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-mfa`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export default function VerifyCode() {
                     description: "Has iniciado sesión correctamente.",
                 })
                 localStorage.removeItem('email') // Limpiar el email almacenado
-                router.push('/home') // Redirigir al dashboard o página principal
+                router.push('/home')
             } else {
                 const errorData = await response.json()
                 toast({

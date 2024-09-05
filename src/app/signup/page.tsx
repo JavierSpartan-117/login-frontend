@@ -62,7 +62,7 @@ export default function SignUp() {
         if (isValid) {
             setIsSubmitting(true)
             try {
-                const response = await fetch("http://localhost:4000/api/auth/create-user", {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/create-user`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
